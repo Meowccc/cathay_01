@@ -1,0 +1,38 @@
+server:
+  compression:
+    mime-types: application/javascript
+  servlet:
+    context-path: /api
+    encoding:
+      force: true
+      enabled: true
+      charset: UTF-8
+  port: 8080
+spring:
+  jackson:
+    date-format: yyyy-MM-dd HH:mm:ss
+    time-zone: GMT+8
+
+  mvc:
+    pathmatch:
+      matching-strategy: ant_path_matcher # for swagger
+  datasource:
+    username: root
+    password: 1234
+    driver-class-name: org.h2.Driver
+    url: jdbc:h2:mem:demo
+  jpa:
+    show-sql: true
+    hibernate:
+      ddl-auto: none
+    database-platform: org.hibernate.dialect.H2Dialect
+    defer-datasource-initialization: true
+  h2:
+    console:
+      enabled: true
+      path: /h2-ui
+      settings:
+        web-allow-others: true
+
+coindesk:
+  endpoint: https://api.coindesk.com
